@@ -78,8 +78,15 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    # Ignore updates that don't contain a message (e.g. edited messages if not supported, or other updates)
+    if not update.message:
+        return
+
     url = update.message.text
     
+    if not url:
+        return
+
     if not url.startswith(('http://', 'https://')):
         await update.message.reply_text("Please send a valid link.")
         return
