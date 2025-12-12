@@ -6,7 +6,7 @@ load_dotenv()
 
 class Config:
     # Telegram Bot Token
-    BOT_TOKEN = os.getenv('BOT_TOKEN')
+    BOT_TOKEN = os.getenv('6415159418:AAERJv0OdfK73-gFlDqmR0AkZ9v7to_e868')
     
     # Maximum file size for downloads (in bytes)
     # Telegram bot API limit is 50MB for bots
