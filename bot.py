@@ -6,6 +6,9 @@ from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, Messa
 import yt_dlp
 from config import Config
 
+# Validate config before starting
+Config.validate()
+
 # Enable logging
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',

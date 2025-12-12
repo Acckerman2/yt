@@ -1,4 +1,5 @@
 import os
+import sys
 from dotenv import load_dotenv
 
 # Load environment variables from a .env file if it exists
@@ -15,6 +16,9 @@ class Config:
     # Download directory (optional, currently using current dir)
     DOWNLOAD_DIR = os.getenv('DOWNLOAD_DIR', os.getcwd())
 
-    # Validate configuration
-    if not BOT_TOKEN:
-        raise ValueError("No BOT_TOKEN provided. Please set the BOT_TOKEN environment variable.")
+    @staticmethod
+    def validate():
+        if not Config.BOT_TOKEN:
+            print("CRITICAL ERROR: BOT_TOKEN is missing!")
+            print("You must set the BOT_TOKEN environment variable in your cloud provider settings (Render/Koyeb/Heroku).")
+            sys.exit(1)
